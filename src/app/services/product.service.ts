@@ -10,8 +10,8 @@ export class ProductService {
   constructor(private http:HttpClient) { }
   path = "http://localhost:3000/products";
 
-  getProducts():Observable<Product[]>{
-    return this.http.get<Product[]>(this.path).pipe(
+  getProducts(categoryId:any):Observable<Product[]>{
+    return this.http.get<Product[]>(this.path+"?categoryId="+categoryId).pipe(
       tap(data => console.log(JSON.stringify(data)) ), //loglama
       catchError(this.handleError) // hata ayıklama
     );

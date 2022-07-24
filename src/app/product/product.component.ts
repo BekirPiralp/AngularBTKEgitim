@@ -3,6 +3,7 @@ import { Product } from './product';
 import { AlertifyServisiService} from '../services/alertify-servisi.service';
 import { AlertifyLochalService } from '../services/alertify-lochal.service';
 import { ProductService } from '../services/product.service';
+import { ActivatedRoute } from '@angular/router';
 // import * as alertify from 'alertifyjs';
 
 
@@ -18,17 +19,23 @@ import { ProductService } from '../services/product.service';
 export class ProductComponent implements OnInit {
 
   private alertifyServisi:AlertifyServisiService;
-  constructor(alertify:AlertifyServisiService,private alertlchl:AlertifyLochalService,
-    private productService:ProductService) 
+  constructor(
+    alertify:AlertifyServisiService,
+    private alertlchl:AlertifyLochalService,
+    private productService:ProductService,
+    private activatedRoute:ActivatedRoute) 
   {this.alertifyServisi=alertify }
 
   title = "Ürün listesi";
   araText:string="";
   products!: Product[];
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(data=>{
-      this.products = data;
+    this.activatedRoute.params.subscribe(params => {
+      this.productService.getProducts(params["categoryId"]).subscribe(data=>{
+        this.products = data;
+      })
     })
+    
   }
 
     ekle(urun:Product){
