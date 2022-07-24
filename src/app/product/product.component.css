@@ -1,0 +1,33 @@
+h1{
+    text-align: center;
+}
+
+.tekSatir{
+    margin-inline-end: 10%;
+    display: inline;
+}
+
+.para{
+    color:yellow;
+}
+
+.text-bg-dark {
+    color: #fff ;
+    background-color: RGB(33,37,41) ;
+}
+
+img.kutu{
+    /* max-width: 16rem; */
+    max-height: 97%;
+    color: white;
+    /* padding-bottom: auto; */
+    font: 2em sans-serif;
+    text-align: center;
+}
+
+#urunCard{
+    max-width: 18rem; 
+    max-height: 30rem; 
+    min-height: 25rem; 
+    height: 5cm;
+}

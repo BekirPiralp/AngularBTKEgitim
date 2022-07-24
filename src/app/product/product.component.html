@@ -1,0 +1,29 @@
+<h1 *ngIf="products else yokProduct">{{title}}</h1> <!-- products var ise göster-->
+<div >
+    <input class="form-control" type="text" id="ara" placeholder="Arama ifadesi" 
+    aria-describedby="aramaYardim" [(ngModel)]="araText">
+    <small *ngIf="araText" id="aramaYardim" class="form-text">Şu an <strong>{{araText}}</strong> aradınız</small>
+</div>
+
+<div class="row">
+    <ng-template #yokProduct>
+        <div class="alert alert-primary mt-2 me-5" role="alert">
+            Bu kategoride ürün bulunamadı!.
+        </div>
+    </ng-template>
+    <div *ngFor="let urun of products | productFilter:araText" class="card m-2 border-success text-bg-dark center" id="urunCard">
+        <div class="mt-3" style="height: 50%; width: 100%; text-align: center;">
+            <img src={{urun.imageUrl}} class="card-img-top kutu" alt="Ürünün resmi bulunamadı." >
+        </div>
+        <div class="card-body" style="height: 50%;">
+            <h5 class="card-title tekSatir" >{{urun.name}}</h5>
+            <!-- <h6 class="tekSatir para">{{urun.price | currency:'USD':true yada "symbol":"1.2-2"}}</h6> -->
+            <h6 class="tekSatir para">{{urun.price | currency:'₺':false:"1.2-2"}}</h6>
+            <p class="card-text">
+                {{urun.description}}
+            </p>
+            <a (click)="ekle(urun)" class="btn btn-primary">Sepete ekle</a>
+        </div>
+    </div>
+    
+</div>
