@@ -6,7 +6,8 @@
     
     
     <div class="list-group rounded" *ngFor="let categori of categories">
-        <a class="list-group-item list-group-item-success mt-1">{{categori.name}}</a>
+        <a class="list-group-item list-group-item-success mt-1"
+        routerLink="products/category/{{categori.id}}">{{categori.name}}</a>
     </div>
     
 </div>
