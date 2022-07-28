@@ -9,7 +9,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
   path = "http://localhost:3000/products";
-
+  //
   getProducts(categoryId: any): Observable<Product[]> {
     let newPath = this.path;
     if (categoryId) {
