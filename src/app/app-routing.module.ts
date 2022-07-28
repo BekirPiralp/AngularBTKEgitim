@@ -4,6 +4,8 @@ import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
   {path:'products', component: ProductComponent},
+  {path:"products-add1", component: ProductComponent},
+  {path:"products-add2", component: ProductComponent},
   {path:"",redirectTo:"products",pathMatch:"full"},
   {path:'products/category/:categoryId', component: ProductComponent}
 ];

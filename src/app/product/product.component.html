@@ -1,4 +1,6 @@
-<h1 *ngIf="products else yokProduct">{{title}}</h1> <!-- products var ise göster-->
+<!-- products var ise göster-->
+<!-- <h1 *ngIf="products else yokProduct">{{title}}</h1>  -->
+<app-category></app-category>
 <div >
     <input class="form-control" type="text" id="ara" placeholder="Arama ifadesi" 
     aria-describedby="aramaYardim" [(ngModel)]="araText">
