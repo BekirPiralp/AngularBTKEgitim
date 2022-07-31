@@ -13,6 +13,7 @@ import { ProductAddForms1Component } from './product/product-add-forms1/product-
 import { ProductAddForms2Component } from './product/product-add-forms2/product-add-forms2.component';
 import { LoginComponent } from './login/login.component';
 import { AccountService } from './services/account.service';
+import { LoginGuard } from './login/login.guard';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { AccountService } from './services/account.service';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [AccountService],
+  providers: [AccountService,LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
