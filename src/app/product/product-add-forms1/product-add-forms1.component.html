@@ -1,0 +1,32 @@
+<h3>Yeni Ürün ekle</h3>
+<form #productAddForms="ngForm" (ngSubmit)="add(productAddForms)">
+    <div class="form-group">
+        <input type="text" #namefrm="ngModel" [(ngModel)]="model.name" placeholder="Ürün adı" class="form-control"
+            name="name" id="name" required>
+        <!-- dirty  girdi birşeyler yazdı ve sildi demek yani kirli-->
+        <!-- touched textboxun içine girdi birşey yazmadan diğerine geçti -->
+        <!-- pristine formu açtı hiçbirşeye doknmadı ise -->
+        <div *ngIf="namefrm.invalid&&namefrm.dirty" class="alert alert-danger">Ürün imi gerekli</div>
+        <input type="text" #descriptionFrm="ngModel" [(ngModel)]="model.description" placeholder="Açıklama"
+            class="form-control" name="descriptionHtml" id="descriptionId" required>
+        <div *ngIf="descriptionFrm.invalid&&descriptionFrm.dirty" class="alert alert-danger">Açıklama gereklidir</div>
+        <input type="text" #imageUrl="ngModel" [(ngModel)]="model.imageUrl" placeholder="Ürün resmi"
+            class="form-control" name="imageUrlHtml" id="imageUrlId" required>
+        <div *ngIf="imageUrl.invalid&&imageUrl.dirty" class="alert alert-danger">Resim yolu gereklidir</div>
+        <input type="text" #priceFrm="ngModel" [(ngModel)]="model.price" placeholder="Ürün fiyatı" class="form-control"
+            name="priceHtml" id="priceId" required>
+        <div *ngIf="priceFrm.invalid&&priceFrm.dirty" class="alert alert-danger">Açıklama gereklidir</div>
+    </div>
+
+    <div class="form-group">
+        <select class="form-control" #categoryId="ngModel" [(ngModel)]="model.categoryId" id="categoryId" name="categoryId" required>
+            <option *ngFor="let category of categories" [value]="category.id">
+                {{category.name}}
+            </option>
+        </select>
+        <div *ngIf="categoryId.invalid&&categoryId.touched" class="alert alert-danger">Kategori gereklidir</div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="productAddForms.invalid">
+        Ürün ekle
+    </button>
+</form>
