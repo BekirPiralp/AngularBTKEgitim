@@ -12,6 +12,7 @@ import { ProductFilterPipe } from './product/product-filter.pipe';
 import { ProductAddForms1Component } from './product/product-add-forms1/product-add-forms1.component';
 import { ProductAddForms2Component } from './product/product-add-forms2/product-add-forms2.component';
 import { LoginComponent } from './login/login.component';
+import { AccountService } from './services/account.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
