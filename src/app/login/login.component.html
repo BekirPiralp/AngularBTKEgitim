@@ -1,20 +1,24 @@
 <body class="text-center">
-    
-    <main class="form-signin w-100 m-auto">
-      <form>
-        <h1 class="h3 mb-3 fw-normal">Sisteme Giriş</h1>
-    
-        <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Password</label>
-        </div>
-    
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Giriş</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2022–2022</p>
-      </form>
-    </main>
-    
+
+  <main class="form-signin w-100 m-auto">
+    <form #loginForm ="ngForm" (ngSubmit)="login(this.loginForm)">
+      <h1 class="h3 mb-3 fw-normal">Sisteme Giriş</h1>
+
+      <div class="form-floating mb-3">
+        <input type="text" #userName="ngModel" [(ngModel)]="user.userName" class="form-control" 
+        id="userName" name="userName" placeholder="Kullanıcı Adı" required autofocus>
+        <label for="userName">Kullanıcı Adı</label>
+        <div *ngIf="userName.invalid&&userName.dirty" class="alert alert-danger">Kullanıcı adı gereklidir!.</div>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="password" #userPassword="ngModel" [(ngModel)]="user.password" class="form-control" 
+        id="userPassword" name="userPassword" placeholder="Şifre" required>
+        <label for="userPassword">Password</label>
+        <div *ngIf="userPassword.invalid&&userPassword.dirty" class="alert alert-danger"> Şifre gereklidir.</div>
+      </div>
+
+      <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="loginForm.invalid">Giriş</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2022–2022</p>
+    </form>
+  </main>

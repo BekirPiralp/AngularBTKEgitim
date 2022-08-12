@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { Observable } from "rxjs";
 import { AccountService} from "../services/account.service";
 
-@Injectable()
+@Injectable() //bu bir sevistir
 export class LoginGuard implements CanActivate{
     constructor(private accountService:AccountService, private router: Router){
 
