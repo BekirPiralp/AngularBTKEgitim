@@ -8,7 +8,14 @@
     </button>
     <div class="navbar-nav">
       <div class="nav-item text-nowrap">
-        <a class="nav-link px-3" routerLink="/login">Sign out</a>
+        <ng-container *ngIf="!this.isLogin; then login else logout">
+        </ng-container>
+        <ng-template #login>
+          <a class="nav-link px-3" routerLink="/login">Login</a>
+        </ng-template>
+        <ng-template #logout>
+          <a (click)="this.logOut()" class="nav-link px-3" routerLink="/login">Logout</a>
+        </ng-template>
       </div>
     </div>
   </header>
